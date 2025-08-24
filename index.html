@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Shop全球市场入驻指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: -2;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            width: 100%;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        
+        .tiktok-logo {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #ff0050, #00f2ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .section-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2rem;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-title i {
+            color: #667eea;
+            font-size: 2rem;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .card-icon {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        .data-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.875rem;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        .data-table tr:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .tag-new {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .tag-popular {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .tag-advanced {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 1px solid #3b82f6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .highlight-box::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .dot.active {
+            background: #667eea;
+            transform: scale(1.5);
+            border-color: white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-text {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .section-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-dots {
+                right: 1rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 移动端专用样式 */
+        .mobile-only {
+            display: none;
+        }
+        
+        .desktop-only {
+            display: block;
+        }
+        
+        /* 移动端导航样式 */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid #e5e7eb;
+            padding: 1rem;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .mobile-nav-tabs {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .mobile-nav-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .mobile-nav-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .mobile-nav-tab i {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .mobile-nav-tab span {
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        /* 移动端卡片样式 */
+        .mobile-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .mobile-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .mobile-card-icon {
+            color: #667eea;
+            font-size: 1.25rem;
+        }
+        
+        /* 移动端表格样式 */
+        .mobile-table {
+            display: none;
+        }
+        
+        .mobile-table-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-table-header {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+        
+        .mobile-table-content {
+            color: #374151;
+            font-size: 0.875rem;
+        }
+        
+        /* 移动端统计卡片 */
+        .mobile-stats {
+            display: none;
+        }
+        
+        .mobile-stat-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+        
+        .mobile-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mobile-stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        /* 响应式断点 */
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none !important;
+            }
+            
+            .mobile-only {
+                display: block !important;
+            }
+            
+            .mobile-nav {
+                display: block;
+            }
+            
+            .mobile-table {
+                display: block;
+            }
+            
+            .mobile-stats {
+                display: block;
+            }
+            
+            .stats-grid {
+                display: none;
+            }
+            
+            .card-grid {
+                display: none;
+            }
+            
+            .table-container {
+                display: none;
+            }
+            
+            .nav-dots {
+                display: none;
+            }
+            
+            .hero-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .section-content {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 桌面端导航点 -->
+    <div class="nav-dots desktop-only">
+        <div class="dot active" onclick="scrollToSection(0)"></div>
+        <div class="dot" onclick="scrollToSection(1)"></div>
+        <div class="dot" onclick="scrollToSection(2)"></div>
+        <div class="dot" onclick="scrollToSection(3)"></div>
+        <div class="dot" onclick="scrollToSection(4)"></div>
+    </div>
+    
+    <!-- 移动端底部导航 -->
+    <div class="mobile-nav mobile-only">
+        <div class="mobile-nav-tabs">
+            <div class="mobile-nav-tab active" onclick="showMobileSection('overview')">
+                <i class="fas fa-globe-americas"></i>
+                <span>总览</span>
+            </div>
+            <div class="mobile-nav-tab" onclick="showMobileSection('data')">
+                <i class="fas fa-table"></i>
+                <span>数据</span>
+            </div>
+            <div class="mobile-nav-tab" onclick="showMobileSection('mexico')">
+                <i class="fas fa-star"></i>
+                <span>墨西哥</span>
+            </div>
+            <div class="mobile-nav-tab" onclick="showMobileSection('advice')">
+                <i class="fas fa-lightbulb"></i>
+                <span>建议</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <i class="fab fa-tiktok tiktok-logo"></i>
+            <h1 class="hero-title">TikTok Shop全球市场入驻指南</h1>
+            <p class="hero-subtitle">新手卖家一站式解决方案 · 数据更新至2025年8月</p>
+            
+            <div class="highlight-box">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">📋 文档说明</h3>
+                <ul class="text-blue-700 space-y-2 text-sm">
+                    <li>• 本指南汇总了TikTok Shop全球主要站点的入驻要求、费用及运营策略</li>
+                    <li>• 数据更新至<span class="font-semibold">2025年8月</span>，包含墨西哥站最新政策</li>
+                    <li>• 重点标注了<span class="font-semibold">启动资金</span>和<span class="font-semibold">新手推荐</span>市场</li>
+                    <li>• 向下滚动查看详细内容，点击右侧导航点快速跳转</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- 全球市场总览 -->
+    <section class="section" id="overview">
+        <div class="container">
+            <div class="section-content fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-globe-americas"></i>
+                    全球市场总览
+                </h2>
+                
+                <p class="text-lg text-gray-600 mb-6">TikTok Shop已覆盖全球多个重要电商市场，各市场特点、入驻门槛和费用结构有所不同：</p>
+                
+                <!-- 桌面端统计卡片 -->
+                <div class="stats-grid desktop-only">
+                    <div class="stat-card">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">东南亚市场新手友好度</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">45%</div>
+                        <div class="stat-label">欧美市场新手友好度</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">新兴市场新手友好度</div>
+                    </div>
+                </div>
+                
+                <!-- 移动端统计卡片 -->
+                <div class="mobile-stats mobile-only">
+                    <div class="mobile-stat-item">
+                        <div class="mobile-stat-number">85%</div>
+                        <div class="mobile-stat-label">东南亚市场新手友好度</div>
+                    </div>
+                    <div class="mobile-stat-item">
+                        <div class="mobile-stat-number">45%</div>
+                        <div class="mobile-stat-label">欧美市场新手友好度</div>
+                    </div>
+                    <div class="mobile-stat-item">
+                        <div class="mobile-stat-number">70%</div>
+                        <div class="mobile-stat-label">新兴市场新手友好度</div>
+                    </div>
+                </div>
+                
+                <!-- 桌面端卡片网格 -->
+                <div class="card-grid desktop-only">
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-flag card-icon"></i>
+                            东南亚市场
+                        </div>
+                        <p class="text-gray-600 mb-4">泰国、越南、马来、菲律宾、新加坡等</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">新手友好度: 高</p>
+                        <div class="mt-4">
+                            <span class="tag tag-popular">新手推荐</span>
+                            <span class="tag tag-new">免佣期</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-dollar-sign card-icon"></i>
+                            欧美市场
+                        </div>
+                        <p class="text-gray-600 mb-4">美国、英国、欧洲等成熟市场</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">新手友好度: 中</p>
+                        <div class="mt-4">
+                            <span class="tag tag-advanced">高门槛</span>
+                            <span class="tag tag-advanced">高利润</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-plus-circle card-icon"></i>
+                            新兴市场
+                        </div>
+                        <p class="text-gray-600 mb-4">墨西哥、巴西、日本等增长型市场</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">新手友好度: 中高</p>
+                        <div class="mt-4">
+                            <span class="tag tag-new">新市场</span>
+                            <span class="tag tag-new">免佣期</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 移动端卡片 -->
+                <div class="mobile-only">
+                    <div class="mobile-card">
+                        <div class="mobile-card-title">
+                            <i class="fas fa-flag mobile-card-icon"></i>
+                            东南亚市场
+                        </div>
+                        <p class="text-gray-600 mb-3">泰国、越南、马来、菲律宾、新加坡等</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">新手友好度: 高</p>
+                        <div class="mt-3">
+                            <span class="tag tag-popular">新手推荐</span>
+                            <span class="tag tag-new">免佣期</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-card">
+                        <div class="mobile-card-title">
+                            <i class="fas fa-dollar-sign mobile-card-icon"></i>
+                            欧美市场
+                        </div>
+                        <p class="text-gray-600 mb-3">美国、英国、欧洲等成熟市场</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">新手友好度: 中</p>
+                        <div class="mt-3">
+                            <span class="tag tag-advanced">高门槛</span>
+                            <span class="tag tag-advanced">高利润</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-card">
+                        <div class="mobile-card-title">
+                            <i class="fas fa-plus-circle mobile-card-icon"></i>
+                            新兴市场
+                        </div>
+                        <p class="text-gray-600 mb-3">墨西哥、巴西、日本等增长型市场</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">新手友好度: 中高</p>
+                        <div class="mt-3">
+                            <span class="tag tag-new">新市场</span>
+                            <span class="tag tag-new">免佣期</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <p class="text-blue-800">对新手卖家而言，<span class="font-semibold">东南亚市场</span>门槛相对较低，而<span class="font-semibold">墨西哥站</span>作为新开放市场有平台红利和优惠政策，都是不错的起点。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 详细数据表格 -->
+    <section class="section" id="data">
+        <div class="container">
+            <div class="section-content fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-table"></i>
+                    全球市场详细数据对比
+                </h2>
+                
+                <p class="text-lg text-gray-600 mb-6">下表汇总了TikTok Shop各站点的入驻要求、费用结构和特点：</p>
+                
+                <!-- 桌面端表格 -->
+                <div class="table-container desktop-only">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>国家/地区</th>
+                                <th>店铺类型</th>
+                                <th>个人商家入驻门槛</th>
+                                <th>保证金(约合)</th>
+                                <th>平台佣金</th>
+                                <th>特点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>东南亚(泰/越/马/菲/新)</td>
+                                <td>本土店、跨境店</td>
+                                <td>个体户执照(注册满6个月)，法人身份证</td>
+                                <td>$90/店</td>
+                                <td>2%~8%</td>
+                                <td>
+                                    <span class="tag tag-popular">新手推荐</span>
+                                    <span class="tag tag-new">免佣期</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>印尼</td>
+                                <td>本土店(通过Tokopedia)</td>
+                                <td>仅对本土企业开放</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>每单收取0.6元处理费</td>
+                            </tr>
+                            <tr>
+                                <td>英国</td>
+                                <td>本土店、跨境店</td>
+                                <td>需提交身份证+手持身份证照片</td>
+                                <td>£1000/店</td>
+                                <td>约5%(不含VAT)</td>
+                                <td>实际费用可能达15-20%(含VAT)</td>
+                            </tr>
+                            <tr>
+                                <td>美国</td>
+                                <td>本土店、ACCU店</td>
+                                <td>仅限美国公民/绿卡持有者</td>
+                                <td>$500/店</td>
+                                <td>约8%</td>
+                                <td>
+                                    <span class="tag tag-advanced">高门槛</span>
+                                    强制本地发货
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>日本</td>
+                                <td>本土店、跨境店</td>
+                                <td>仅限年满20岁的日本居民</td>
+                                <td>7万日元/店</td>
+                                <td>1.5%~3%</td>
+                                <td>品牌化要求高</td>
+                            </tr>
+                            <tr>
+                                <td>欧洲大陆(法/德/意/西)</td>
+                                <td>本土店、跨境店</td>
+                                <td>-</td>
+                                <td>€1000/店</td>
+                                <td>约5%(不含VAT)</td>
+                                <td>需遵循欧盟EPR合规要求</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="tag tag-new">新市场</span>
+                                    墨西哥
+                                </td>
+                                <td>本土店、跨境店</td>
+                                <td>需墨西哥身份证或永久居民卡</td>
+                                <td>8000比索(跨境店)</td>
+                                <td>0%(前90天)→之后4-6%</td>
+                                <td>
+                                    <span class="tag tag-new">免佣期</span>
+                                    必须本地仓发货
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>巴西</td>
+                                <td>本土店、跨境店</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>需配备葡萄牙语客服</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- 移动端表格 -->
+                <div class="mobile-table mobile-only">
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">东南亚(泰/越/马/菲/新)</div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店、跨境店<br>
+                            <strong>入驻门槛:</strong> 个体户执照(注册满6个月)，法人身份证<br>
+                            <strong>保证金:</strong> $90/店<br>
+                            <strong>平台佣金:</strong> 2%~8%<br>
+                            <strong>特点:</strong> <span class="tag tag-popular">新手推荐</span> <span class="tag tag-new">免佣期</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">印尼</div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店(通过Tokopedia)<br>
+                            <strong>入驻门槛:</strong> 仅对本土企业开放<br>
+                            <strong>特点:</strong> 每单收取0.6元处理费
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">英国</div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店、跨境店<br>
+                            <strong>入驻门槛:</strong> 需提交身份证+手持身份证照片<br>
+                            <strong>保证金:</strong> £1000/店<br>
+                            <strong>平台佣金:</strong> 约5%(不含VAT)<br>
+                            <strong>特点:</strong> 实际费用可能达15-20%(含VAT)
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">美国</div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店、ACCU店<br>
+                            <strong>入驻门槛:</strong> 仅限美国公民/绿卡持有者<br>
+                            <strong>保证金:</strong> $500/店<br>
+                            <strong>平台佣金:</strong> 约8%<br>
+                            <strong>特点:</strong> <span class="tag tag-advanced">高门槛</span> 强制本地发货
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">日本</div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店、跨境店<br>
+                            <strong>入驻门槛:</strong> 仅限年满20岁的日本居民<br>
+                            <strong>保证金:</strong> 7万日元/店<br>
+                            <strong>平台佣金:</strong> 1.5%~3%<br>
+                            <strong>特点:</strong> 品牌化要求高
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">欧洲大陆(法/德/意/西)</div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店、跨境店<br>
+                            <strong>保证金:</strong> €1000/店<br>
+                            <strong>平台佣金:</strong> 约5%(不含VAT)<br>
+                            <strong>特点:</strong> 需遵循欧盟EPR合规要求
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">墨西哥 <span class="tag tag-new">新市场</span></div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店、跨境店<br>
+                            <strong>入驻门槛:</strong> 需墨西哥身份证或永久居民卡<br>
+                            <strong>保证金:</strong> 8000比索(跨境店)<br>
+                            <strong>平台佣金:</strong> 0%(前90天)→之后4-6%<br>
+                            <strong>特点:</strong> <span class="tag tag-new">免佣期</span> 必须本地仓发货
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-table-item">
+                        <div class="mobile-table-header">巴西</div>
+                        <div class="mobile-table-content">
+                            <strong>店铺类型:</strong> 本土店、跨境店<br>
+                            <strong>特点:</strong> 需配备葡萄牙语客服
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <p class="text-amber-800">注：保证金金额可能因商品类目不同而有差异，佣金率也不定期调整，请以TikTok Shop官方最新公布为准。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 墨西哥站特别说明 -->
+    <section class="section" id="mexico">
+        <div class="container">
+            <div class="section-content fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    墨西哥站特别说明
+                </h2>
+                
+                <p class="text-lg text-gray-600 mb-6">墨西哥站于2025年8月18日正式向中国跨境商家开放，是一个值得关注的新兴市场：</p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-check-circle card-icon"></i>
+                            入驻要求
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• 中国内地或香港企业营业执照(不支持个体户)</li>
+                            <li>• 营业执照注册满14天且有效期≥90天</li>
+                            <li>• 商品需从墨西哥本地仓发货(强制要求)</li>
+                            <li>• 建议提供墨西哥RFC税号(否则平台按售出金额代扣16%增值税+20%所得税)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-gift card-icon"></i>
+                            平台优惠
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• 新商家前90天平台佣金全免</li>
+                            <li>• 新上架商品最高可获得5000PV流量曝光</li>
+                            <li>• 参与SFP计划享受运费补贴</li>
+                            <li>• 同一主体最多可开15个墨西哥跨境店铺</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-box-open card-icon"></i>
+                        开放类目
+                    </div>
+                    <p class="text-gray-600">时尚行业、快消行业、家居生活、数码家电、汽摩配件(美妆个护、食品饮料、保健品等暂未开放，玩具类目仅开放定邀)</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <p class="text-blue-800">墨西哥电商市场连续六年保持20%以上增长，2025年市场规模预计达441.5亿美元，潜力巨大。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 给新手的建议 -->
+    <section class="section" id="advice">
+        <div class="container">
+            <div class="section-content fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    给新手的建议
+                </h2>
+                
+                <p class="text-lg text-gray-600 mb-6">根据不同类型的新手卖家，推荐以下入驻策略：</p>
+                
+                <!-- 桌面端建议卡片 -->
+                <div class="card-grid desktop-only">
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-user-graduate card-icon"></i>
+                            个人新手卖家
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• 首选<span class="font-semibold text-blue-600">东南亚市场</span>(泰国、马来西亚、越南等)</li>
+                            <li>• 保证金较低($90/店)，且有新卖家免佣期</li>
+                            <li>• 内容创作门槛相对较低，适合练习</li>
+                            <li>• 避免印尼站(仅对本土企业开放)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-briefcase card-icon"></i>
+                            有一定经验的跨境卖家
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• 可尝试<span class="font-semibold text-green-600">墨西哥站</span>，享受90天0佣金红利</li>
+                            <li>• 需解决本地仓问题，提前规划物流</li>
+                            <li>• 关注税务问题(建议申请RFC税号)</li>
+                            <li>• 重点关注开放类目中的机会</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-crown card-icon"></i>
+                            品牌/工贸一体企业
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• 可考虑<span class="font-semibold text-purple-600">欧美高端市场</span>(美、英、欧洲)</li>
+                            <li>• 保证金和合规要求高，但客单价和利润空间大</li>
+                            <li>• 需要专业团队处理VAT/EPR等合规问题</li>
+                            <li>• 建议布局海外仓，提升物流体验</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-exclamation-triangle card-icon"></i>
+                            低成本试水卖家
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• 从<span class="font-semibold text-amber-600">保证金较低的类目</span>开始</li>
+                            <li>• 充分利用各站点<span class="font-semibold text-amber-600">新卖家免佣期</span></li>
+                            <li>• 密切关注平台官方活动和新政策</li>
+                            <li>• 做好成本核算，注意隐形成本(物流、税务等)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 移动端建议卡片 -->
+                <div class="mobile-only">
+                    <div class="mobile-card">
+                        <div class="mobile-card-title">
+                            <i class="fas fa-user-graduate mobile-card-icon"></i>
+                            个人新手卖家
+                        </div>
+                        <ul class="text-gray-600 space-y-2 text-sm">
+                            <li>• 首选<span class="font-semibold text-blue-600">东南亚市场</span>(泰国、马来西亚、越南等)</li>
+                            <li>• 保证金较低($90/店)，且有新卖家免佣期</li>
+                            <li>• 内容创作门槛相对较低，适合练习</li>
+                            <li>• 避免印尼站(仅对本土企业开放)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-card">
+                        <div class="mobile-card-title">
+                            <i class="fas fa-briefcase mobile-card-icon"></i>
+                            有一定经验的跨境卖家
+                        </div>
+                        <ul class="text-gray-600 space-y-2 text-sm">
+                            <li>• 可尝试<span class="font-semibold text-green-600">墨西哥站</span>，享受90天0佣金红利</li>
+                            <li>• 需解决本地仓问题，提前规划物流</li>
+                            <li>• 关注税务问题(建议申请RFC税号)</li>
+                            <li>• 重点关注开放类目中的机会</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-card">
+                        <div class="mobile-card-title">
+                            <i class="fas fa-crown mobile-card-icon"></i>
+                            品牌/工贸一体企业
+                        </div>
+                        <ul class="text-gray-600 space-y-2 text-sm">
+                            <li>• 可考虑<span class="font-semibold text-purple-600">欧美高端市场</span>(美、英、欧洲)</li>
+                            <li>• 保证金和合规要求高，但客单价和利润空间大</li>
+                            <li>• 需要专业团队处理VAT/EPR等合规问题</li>
+                            <li>• 建议布局海外仓，提升物流体验</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-card">
+                        <div class="mobile-card-title">
+                            <i class="fas fa-exclamation-triangle mobile-card-icon"></i>
+                            低成本试水卖家
+                        </div>
+                        <ul class="text-gray-600 space-y-2 text-sm">
+                            <li>• 从<span class="font-semibold text-amber-600">保证金较低的类目</span>开始</li>
+                            <li>• 充分利用各站点<span class="font-semibold text-amber-600">新卖家免佣期</span></li>
+                            <li>• 密切关注平台官方活动和新政策</li>
+                            <li>• 做好成本核算，注意隐形成本(物流、税务等)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <p class="text-blue-800 font-semibold mb-3">无论选择哪个市场，都建议：</p>
+                    <ul class="text-blue-700 space-y-2">
+                        <li>• 仔细研究平台规则和当地法律法规</li>
+                        <li>• 提前规划物流解决方案</li>
+                        <li>• 重视本地化内容创作和客户服务</li>
+                        <li>• 从小处着手，测试后再扩大规模</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 class="footer-title">TikTok Shop全球市场指南</h3>
+            <p class="footer-text">© 2025 数据更新至2025年8月</p>
+            <p class="footer-text mt-2">注：本指南仅供参考，平台政策可能随时调整，请以TikTok Shop官方最新公布为准</p>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动到指定区域
+        function scrollToSection(index) {
+            const sections = document.querySelectorAll('.section');
+            if (index >= 0 && index < sections.length) {
+                sections[index].scrollIntoView({ behavior: 'smooth' });
+                updateActiveDot(index);
+            }
+        }
+        
+        // 更新活跃导航点
+        function updateActiveDot(index) {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+        
+        // 监听滚动更新导航点
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    updateActiveDot(i);
+                    break;
+                }
+            }
+        });
+        
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 平滑滚动到英雄区域
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            document.querySelector('#overview').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // 设备检测
+        function detectDevice() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+            return isMobile;
+        }
+        
+        // 移动端导航功能
+        function showMobileSection(sectionId) {
+            // 更新导航标签状态
+            const tabs = document.querySelectorAll('.mobile-nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // 滚动到对应区域
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // 页面加载时检测设备并调整布局
+        window.addEventListener('load', function() {
+            const isMobile = detectDevice();
+            
+            if (isMobile) {
+                // 移动端优化
+                document.body.classList.add('mobile-device');
+                
+                // 隐藏桌面端元素
+                document.querySelectorAll('.desktop-only').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // 显示移动端元素
+                document.querySelectorAll('.mobile-only').forEach(el => {
+                    el.style.display = 'block';
+                });
+                
+                // 调整移动端导航
+                const mobileNav = document.querySelector('.mobile-nav');
+                if (mobileNav) {
+                    mobileNav.style.display = 'block';
+                }
+            } else {
+                // 桌面端优化
+                document.body.classList.add('desktop-device');
+                
+                // 隐藏移动端元素
+                document.querySelectorAll('.mobile-only').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // 显示桌面端元素
+                document.querySelectorAll('.desktop-only').forEach(el => {
+                    el.style.display = 'block';
+                });
+            }
+        });
+        
+        // 窗口大小改变时重新检测
+        window.addEventListener('resize', function() {
+            const isMobile = detectDevice();
+            
+            if (isMobile) {
+                document.body.classList.remove('desktop-device');
+                document.body.classList.add('mobile-device');
+            } else {
+                document.body.classList.remove('mobile-device');
+                document.body.classList.add('desktop-device');
+            }
+        });
+    </script>
+</body>
+</html>
