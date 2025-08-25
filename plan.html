@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Shop东南亚店群计划</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-light: #4d94ff;
+            --secondary: #004080;
+            --accent: #ff6600;
+            --light-bg: #f0f7ff;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #cce5ff;
+            --card-bg: #ffffff;
+            --header-bg: linear-gradient(135deg, #0066cc 0%, #004080 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f8fafc;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0.8rem;
+        }
+
+        /* 顶部导航 */
+        .mobile-header {
+            position: sticky;
+            top: 0;
+            background: var(--header-bg);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        h1 {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-size: 1.4rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .last-update {
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+        }
+
+        /* 移动端菜单 */
+        .mobile-tabs {
+            position: sticky;
+            top: 120px;
+            display: flex;
+            overflow-x: auto;
+            background: white;
+            padding: 0.5rem;
+            z-index: 90;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .mobile-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            flex: 0 0 auto;
+            padding: 0.6rem 1rem;
+            margin-right: 0.5rem;
+            border-radius: 20px;
+            background: #f0f7ff;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            scroll-margin-top: 130px;
+        }
+
+        h2 {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        h2 i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-weight: 600;
+            margin: 1.2rem 0 0.7rem;
+            font-size: 1.1rem;
+        }
+
+        /* 卡片样式 */
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .card-title i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* 战略核心卡片 */
+        .strategy-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--accent);
+        }
+
+        .strategy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .strategy-number {
+            background: var(--accent);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .strategy-name {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            flex-grow: 1;
+            margin-left: 0.5rem;
+        }
+
+        .strategy-content {
+            font-size: 0.95rem;
+        }
+
+        .strategy-reason {
+            background: #fff6e6;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* 店铺卡片特定样式 */
+        .shop-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--primary);
+        }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .shop-name {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .shop-role {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .shop-role.main {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .shop-role.test {
+            background-color: #ffedd5;
+            color: #9a3412;
+        }
+
+        .shop-role.clearance {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .shop-countries {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .country-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            background: #e6f2ff;
+            color: var(--primary);
+        }
+
+        /* 资金卡片特定样式 */
+        .cost-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .cost-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .cost-name {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+
+        .cost-amount {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .cost-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .cost-total {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* 数据高亮 */
+        .data-highlight {
+            background: linear-gradient(135deg, #99ccff 0%, #4d94ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* 注意事项框 */
+        .note-box {
+            background-color: var(--light-bg);
+            border-left: 3px solid var(--primary-light);
+            padding: 0.8rem;
+            margin: 1.2rem 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0.8rem;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        /* 列表样式 */
+        ul,
+        ol {
+            padding-left: 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* 底部导航 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.6rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.7rem;
+        }
+
+        .nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        /* 内容区增加底部间距，避免被导航栏遮挡 */
+        .content-wrapper {
+            padding-bottom: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-header">
+        <div class="logo">
+            <i class="fab fa-tiktok"></i>
+        </div>
+        <h1>TikTok Shop东南亚店群计划</h1>
+        <p class="subtitle">精细化运营 · 数据驱动 · 稳健增长</p>
+        <div class="last-update">
+            <i class="fas fa-sync-alt"></i> 2025年8月更新
+        </div>
+    </div>
+
+    <div class="mobile-tabs">
+        <div class="tab active" data-target="overview">总览</div>
+        <div class="tab" data-target="market">市场数据</div>
+        <div class="tab" data-target="strategy">战略核心</div>
+        <div class="tab" data-target="shops">店铺规划</div>
+        <div class="tab" data-target="cost">资金预算</div>
+        <div class="tab" data-target="timeline">执行计划</div>
+        <div class="tab" data-target="risk">风险控制</div>
+    </div>
+
+    <div class="container content-wrapper">
+        <section id="overview">
+            <h2><i class="fas fa-bullseye"></i>项目核心目标</h2>
+            <p><strong>核心目标：</strong>6个月内，建立 <strong>5个店铺</strong>，覆盖 <strong>越、泰、马</strong> 3个国家，实现日均总单量
+                <strong>100+</strong> 的稳定盈利店群。</p>
+
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-chess-board"></i>
+                        <span>店群矩阵</span>
+                    </div>
+                    <p>店铺功能分化（主攻/测款/清仓），精准运营。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-chart-line"></i>
+                        <span>数据驱动</span>
+                    </div>
+                    <p>快速测款，集中资源打造爆品。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-truck-fast"></i>
+                        <span>供应链前置</span>
+                    </div>
+                    <p>采用 "1688采购 + 第三方海外仓代发" 模式，保障物流时效。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>合规运营</span>
+                    </div>
+                    <p>严格遵守平台规则与当地税务政策。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="market">
+            <h2><i class="fas fa-globe-asia"></i>2025年市场数据</h2>
+            <p>根据2025年上半年最新市场数据，TikTok Shop继续保持高速增长态势：</p>
+
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>全球GMV表现</span>
+                    </div>
+                    <p>2025年上半年TikTok Shop全球GMV突破<span class="data-highlight">262亿美元</span>，同比增长100%-120%。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-fire"></i>
+                        <span>东南亚市场</span>
+                    </div>
+                    <p>东南亚仍是增长主引擎，总GMV超<span class="data-highlight">168.64亿美元</span>。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-users"></i>
+                        <span>用户活跃度</span>
+                    </div>
+                    <p>TikTok全球月活跃用户突破<span class="data-highlight">15.9亿</span>，每月在平台花费近35小时。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-box-open"></i>
+                        <span>热门类目</span>
+                    </div>
+                    <p>美妆个护占比16%领跑，家居园艺、宠物用品借内容营销崛起。</p>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <i class="fas fa-lightbulb"></i>
+                <span><strong>战略洞察：</strong>东南亚市场增长强劲，用户活跃度高，美妆个护、家居用品和宠物用品等类目仍有较大机会。</span>
+            </div>
+        </section>
+
+
+        <section id="shops">
+            <h2><i class="fas fa-store"></i>店铺矩阵规划 (5店15站)</h2>
+            <p>我们的店群将采用功能分化策略，每个店铺承担不同角色：</p>
+
+            <!-- 店铺A -->
+            <div class="shop-card">
+                <div class="shop-header">
+                    <div class="shop-name">店铺A</div>
+                    <div class="shop-role main">主攻店</div>
+                </div>
+                <div class="shop-countries">
+                    <span class="country-tag">越南</span>
+                    <span class="country-tag">泰国</span>
+                    <span class="country-tag">马来西亚</span>
+                </div>
+                <p><strong>核心任务：</strong>资源倾斜，精细化运营已验证爆款，追求最大利润。</p>
+            </div>
+
+            <!-- 店铺B -->
+            <div class="shop-card">
+                <div class="shop-header">
+                    <div class="shop-name">店铺B</div>
+                    <div class="shop-role test">测品店</div>
+                </div>
+                <div class="shop-countries">
+                    <span class="country-tag">越南</span>
+                    <span class="country-tag">泰国</span>
+                    <span class="country-tag">马来西亚</span>
+                </div>
+                <p><strong>核心任务：</strong>每日上新，疯狂测款，挖掘潜力产品，向主攻店输送。</p>
+            </div>
+
+            <!-- 店铺C -->
+            <div class="shop-card">
+                <div class="shop-header">
+                    <div class="shop-name">店铺C</div>
+                    <div class="shop-role main">主攻店</div>
+                </div>
+                <div class="shop-countries">
+                    <span class="country-tag">越南</span>
+                    <span class="country-tag">泰国</span>
+                    <span class="country-tag">马来西亚</span>
+                </div>
+                <p><strong>核心任务：</strong>复制店铺A模式，形成第二利润中心，产品线互补。</p>
+            </div>
+
+            <!-- 店铺D -->
+            <div class="shop-card">
+                <div class="shop-header">
+                    <div class="shop-name">店铺D</div>
+                    <div class="shop-role test">测品/备用店</div>
+                </div>
+                <div class="shop-countries">
+                    <span class="country-tag">越南</span>
+                    <span class="country-tag">泰国</span>
+                    <span class="country-tag">备用站点</span>
+                </div>
+                <p><strong>核心任务：</strong>探索新品类，同时作为备用店，防止主店意外风险。</p>
+            </div>
+
+            <!-- 店铺E -->
+            <div class="shop-card">
+                <div class="shop-header">
+                    <div class="shop-name">店铺E</div>
+                    <div class="shop-role clearance">清仓店</div>
+                </div>
+                <div class="shop-countries">
+                    <span class="country-tag">越南</span>
+                    <span class="country-tag">泰国</span>
+                    <span class="country-tag">马来西亚</span>
+                </div>
+                <p><strong>核心任务：</strong>处理各店滞销库存，捆绑打折促销，回笼资金。</p>
+            </div>
+        </section>
+
+        <section id="cost">
+            <h2><i class="fas fa-money-bill-wave"></i>启动资金预估</h2>
+            <p>以下是项目启动所需的资金预估，总计约 <span class="data-highlight">7-11万人民币</span>：</p>
+
+            <!-- 资金项目1 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">店铺保证金</div>
+                    <div class="cost-amount">¥4,000-5,000</div>
+                </div>
+                <div class="cost-desc">
+                    东南亚站点约90美元/站点，5店×3站×90美元≈$1350(约¥9750)，但新店可能有优惠。
+                </div>
+            </div>
+
+            <!-- 资金项目2 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">本地仓合作费</div>
+                    <div class="cost-amount">¥5,000-15,000</div>
+                </div>
+                <div class="cost-desc">
+                    第三方海外仓押金/开户费，关键投资，需提前洽谈。
+                </div>
+            </div>
+
+            <!-- 资金项目3 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">头程物流费</div>
+                    <div class="cost-amount">¥20,000+</div>
+                </div>
+                <div class="cost-desc">
+                    商品批量海运至海外仓的费用，持续性较大支出，小批量试货开始。
+                </div>
+            </div>
+
+            <!-- 资金项目4 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">样品采购费</div>
+                    <div class="cost-amount">¥1,000-2,000</div>
+                </div>
+                <div class="cost-desc">
+                    从1688等平台购买样品测试，避免采购劣质产品，必要投资。
+                </div>
+            </div>
+
+            <!-- 资金项目5 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">广告测款费</div>
+                    <div class="cost-amount">¥5,000-10,000</div>
+                </div>
+                <div class="cost-desc">
+                    TikTok广告投放测款，从小预算测试开始(每天10美元起)。
+                </div>
+            </div>
+
+            <!-- 资金项目6 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">ERP系统费</div>
+                    <div class="cost-amount">¥500-1,500/月</div>
+                </div>
+                <div class="cost-desc">
+                    管理多店铺订单、采购、库存，必要投资，极大提升效率。
+                </div>
+            </div>
+
+            <!-- 资金项目7 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">防关联浏览器</div>
+                    <div class="cost-amount">¥500-1,000/月</div>
+                </div>
+                <div class="cost-desc">
+                    为每个店配备独立IP环境，安全底线，严防封店。
+                </div>
+            </div>
+
+            <!-- 资金项目8 -->
+            <div class="cost-card">
+                <div class="cost-header">
+                    <div class="cost-name">货款周转金</div>
+                    <div class="cost-amount">¥30,000-50,000</div>
+                </div>
+                <div class="cost-desc">
+                    垫资采购，等待平台回款，生命线，按日20单，回款周期15天计算。
+                </div>
+            </div>
+
+            <!-- 资金总计 -->
+            <div class="cost-total">
+                资金总计: 约 ¥70,000 - ¥110,000+
+            </div>
+
+            <div class="note-box">
+                <i class="fas fa-exclamation-circle"></i>
+                <span><strong>重要提示：</strong>货款周转金是项目持续运转的生命线，用于垫付顾客下单后的采购成本，直至平台回款。此部分预算绝对不能省。</span>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <h2><i class="fas fa-tasks"></i>四阶段执行计划</h2>
+
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-play-circle"></i>
+                        <span>阶段一：准备与启动 (1-2周)</span>
+                    </div>
+                    <ul>
+                        <li>资质准备与环境搭建</li>
+                        <li>对接第三方海外仓服务商</li>
+                        <li>初选50-100款产品</li>
+                    </ul>
+                    <p><strong>目标：</strong>完成基础设施搭建，店铺通过审核。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-flask"></i>
+                        <span>阶段二：测款与验证 (3-6周)</span>
+                    </div>
+                    <ul>
+                        <li>测品店每日上新5-10款</li>
+                        <li>小额广告预算测款</li>
+                        <li>数据化分析（点击率>5%，加购率>10%）</li>
+                        <li>测试海外仓全流程</li>
+                    </ul>
+                    <p><strong>目标：</strong>找到3-5个准爆款，验证物流通路。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-chart-line"></i>
+                        <span>阶段三：优化与扩张 (7-12周)</span>
+                    </div>
+                    <ul>
+                        <li>爆款转移至主攻店</li>
+                        <li>逐步提高售价，追求利润</li>
+                        <li>增加广告预算，放大流量</li>
+                        <li>小批量备货至海外仓</li>
+                    </ul>
+                    <p><strong>目标：</strong>主攻店稳定出单，单店日均20单。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-rocket"></i>
+                        <span>阶段四：稳定与增长 (3-6个月)</span>
+                    </div>
+                    <ul>
+                        <li>分析各店ROI，优化策略</li>
+                        <li>与核心供应商建立长期合作</li>
+                        <li>尝试自有logo和定制包装</li>
+                        <li>考虑拓展新市场</li>
+                    </ul>
+                    <p><strong>目标：</strong>店群矩阵稳定盈利，建立可复制模式。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="risk">
+            <h2><i class="fas fa-exclamation-triangle"></i>风险控制</h2>
+
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>账号安全</span>
+                    </div>
+                    <p>严格隔离店铺环境，遵守平台规则。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>现金流</span>
+                    </div>
+                    <p>预留充足货款周转金，确保回款前能持续下单。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>税务合规</span>
+                    </div>
+                    <p>重点关注马来西亚等站的税务政策。</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>备用计划</span>
+                    </div>
+                    <p>准备备用店铺和供应商，应对突发情况。</p>
+                </div>
+            </div>
+
+            <h3>下一步行动项：</h3>
+            <ol>
+                <li>优先对接泰国、越南的第三方海外仓服务商</li>
+                <li>准备环境和配置防关联浏览器</li>
+                <li>准备营业执照等材料，开始店铺注册</li>
+                <li>充分利用各站点90天免佣政策</li>
+            </ol>
+        </section>
+        <section id="strategy">
+            <h2><i class="fas fa-chess"></i>战略核心：四项关键行动</h2>
+            <p>以下四项任务是推动项目从"规划"走向"落地"的<strong>最高优先级任务</strong>，是项目启动的四个关键杠杆点：</p>
+
+            <!-- 行动项1 -->
+            <div class="strategy-card">
+                <div class="strategy-header">
+                    <div class="strategy-number">1</div>
+                    <div class="strategy-name">优先对接泰国、越南的第三方海外仓服务商</div>
+                </div>
+                <div class="strategy-content">
+                    <p>这是整个"无货源模式"能否成立的<strong>基石</strong>。物流是电商的命脉，尤其是在TikTok Shop对时效有严格要求的背景下。</p>
+                    <div class="strategy-reason">
+                        <strong>为什么必须优先做？</strong> 海外仓的洽谈、测试和签约是整个流程中最耗时、最不确定的环节，必须第一时间启动。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行动项2 -->
+            <div class="strategy-card">
+                <div class="strategy-header">
+                    <div class="strategy-number">2</div>
+                    <div class="strategy-name">准备环境和配置防关联浏览器</div>
+                </div>
+                <div class="strategy-content">
+                    <p>这是保障账号安全的"<strong>保险</strong>"。TikTok平台对多账号运营有严格检测机制。5个店铺必须拥有完全独立、稳定的IP和环境。</p>
+                    <div class="strategy-reason">
+                        <strong>为什么必须优先做？</strong> 这项工作必须在注册店铺之前完成。一旦注册后再想补救，极易触发平台风控，导致全军覆没。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行动项3 -->
+            <div class="strategy-card">
+                <div class="strategy-header">
+                    <div class="strategy-number">3</div>
+                    <div class="strategy-name">准备营业执照等材料，开始店铺注册</div>
+                </div>
+                <div class="strategy-content">
+                    <p>这是开启项目的"<strong>官方门票</strong>"。平台审核需要时间（通常3-7个工作日）。</p>
+                    <div class="strategy-reason">
+                        <strong>为什么必须优先做？</strong> 在解决物流和安全问题的同时，同步推进资质审核，可以最大化利用时间，确保一旦物流方案落地，店铺立刻就能投入运营。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行动项4 -->
+            <div class="strategy-card">
+                <div class="strategy-header">
+                    <div class="strategy-number">4</div>
+                    <div class="strategy-name">充分利用各站点90天免佣政策</div>
+                </div>
+                <div class="strategy-content">
+                    <p>这是最重要的"<strong>开局红利</strong>"，是降低试错成本的绝佳机会。新店免佣期内，每卖出一件商品都能节省约2%-8%的成本。</p>
+                    <div class="strategy-reason">
+                        <strong>为什么必须优先做？</strong> 所有运营策略（尤其是测款）都应围绕这个周期来规划，争取在免佣期内测试出爆款并形成稳定出单。
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <i class="fas fa-lightbulb"></i>
+                <span><strong>执行逻辑：</strong>第1、2、3项应该<strong>同时开始进行</strong>。一个人负责研究和对接海外仓，另一个人同时准备环境和注册材料。所有前期工作的核心目标，都是为了能最大限度地<strong>利用第4项的红利政策</strong>。</span>
+            </div>
+        </section>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="#overview" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>总览</span>
+        </a>
+        <a href="#market" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span>市场</span>
+        </a>
+        <a href="#strategy" class="nav-item">
+            <i class="fas fa-chess"></i>
+            <span>战略</span>
+        </a>
+        <a href="#shops" class="nav-item">
+            <i class="fas fa-store"></i>
+            <span>店铺</span>
+        </a>
+        <a href="#cost" class="nav-item">
+            <i class="fas fa-money-bill"></i>
+            <span>预算</span>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2025 TikTok Shop东南亚店群项目计划</p>
+        <p>数据仅供参考，实际运营需根据市场情况调整</p>
+    </footer>
+
+    <script>
+        // 简单的导航功能
+        document.addEventListener('DOMContentLoaded', function () {
+            // 选项卡切换
+            const tabs = document.querySelectorAll('.tab');
+            const sections = document.querySelectorAll('section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const target = this.getAttribute('data-target');
+
+                    // 更新选项卡状态
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // 滚动到对应区域
+                    document.getElementById(target).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // 底部导航
+            const navItems = document.querySelectorAll('.nav-item');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href');
+
+                    // 更新导航状态
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // 滚动到对应区域
+                    document.querySelector(target).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // 监听滚动更新导航状态
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+
+                        // 更新底部导航
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === `#${id}`) {
+                                item.classList.add('active');
+                            }
+                        });
+
+                        // 更新顶部选项卡
+                        tabs.forEach(tab => {
+                            tab.classList.remove('active');
+                            if (tab.getAttribute('data-target') === id) {
+                                tab.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+
+</html>
