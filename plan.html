@@ -44,8 +44,6 @@
 
         /* 顶部导航 */
         .mobile-header {
-            position: sticky;
-            top: 0;
             background: var(--header-bg);
             color: white;
             padding: 1rem;
@@ -82,7 +80,7 @@
         /* 移动端菜单 */
         .mobile-tabs {
             position: sticky;
-            top: 120px;
+            top: 0;
             display: flex;
             overflow-x: auto;
             background: white;
@@ -424,18 +422,19 @@
     <div class="mobile-tabs">
         <div class="tab active" data-target="overview">总览</div>
         <div class="tab" data-target="market">市场数据</div>
-        <div class="tab" data-target="strategy">战略核心</div>
         <div class="tab" data-target="shops">店铺规划</div>
         <div class="tab" data-target="cost">资金预算</div>
         <div class="tab" data-target="timeline">执行计划</div>
         <div class="tab" data-target="risk">风险控制</div>
+        <div class="tab" data-target="strategy">战略核心</div>
     </div>
 
     <div class="container content-wrapper">
         <section id="overview">
             <h2><i class="fas fa-bullseye"></i>项目核心目标</h2>
             <p><strong>核心目标：</strong>6个月内，建立 <strong>5个店铺</strong>，覆盖 <strong>越、泰、马</strong> 3个国家，实现日均总单量
-                <strong>100+</strong> 的稳定盈利店群。</p>
+                <strong>100+</strong> 的稳定盈利店群。
+            </p>
 
             <div class="card-container">
                 <div class="card">
@@ -901,7 +900,15 @@
         document.addEventListener('DOMContentLoaded', function () {
             // 选项卡切换
             const tabs = document.querySelectorAll('.tab');
+            const tabsContainer = document.querySelector('.mobile-tabs');
             const sections = document.querySelectorAll('section');
+
+            function centerActiveTab() {
+                const activeTab = document.querySelector('.mobile-tabs .tab.active');
+                if (activeTab && tabsContainer) {
+                    activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+            }
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', function () {
@@ -910,6 +917,9 @@
                     // 更新选项卡状态
                     tabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
+
+                    // 确保激活的tab可见
+                    centerActiveTab();
 
                     // 滚动到对应区域
                     document.getElementById(target).scrollIntoView({
@@ -964,6 +974,9 @@
                                 tab.classList.add('active');
                             }
                         });
+
+                        // 确保激活的tab可见
+                        centerActiveTab();
                     }
                 });
             }, observerOptions);
